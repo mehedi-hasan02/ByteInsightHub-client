@@ -4,8 +4,9 @@ import Carousel from '../Banner/Carousel';
 const Home = () => {
     return (
         <div>
-            <Carousel></Carousel>
-            <h1>This is home</h1>
+            <div className='mt-10'>
+                <Carousel></Carousel>
+            </div>
         </div>
     );
 };
