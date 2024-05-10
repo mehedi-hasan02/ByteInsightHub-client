@@ -4,6 +4,8 @@ import Home from "../../Component/Home/Home";
 import Login from "../../Component/Login/Login";
 import Register from "../../Component/Register/Register";
 import Error from "../../Component/Error/Error";
+import AddBlog from "../../Component/AddBlog/AddBlog";
+import BlogDetails from "../../Component/Home/BlogDetails";
 
 
 const router = createBrowserRouter([
@@ -15,6 +17,7 @@ const router = createBrowserRouter([
         {
             path: '/',
             element:<Home></Home>,
+            loader: ()=>fetch('http://localhost:8000/blogs'),
         },
         {
             path: '/login',
@@ -22,7 +25,16 @@ const router = createBrowserRouter([
         },
         {
             path: 'register',
-            element: <Register></Register>
+            element: <Register></Register>,
+        },
+        {
+          path: '/addBlog',
+          element: <AddBlog></AddBlog>,
+        },
+        {
+          path: '/blogDetails/:id',
+          element: <BlogDetails></BlogDetails>,
+          loader: ({params})=>fetch(`http://localhost:8000/blogs/${params.id}`)
         }
       ]
     },

@@ -5,8 +5,10 @@ import Navbar from "../Navbar/Navbar";
 const MainLayout = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className='max-w-screen-xl mx-auto '>
+                <Navbar></Navbar>
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };

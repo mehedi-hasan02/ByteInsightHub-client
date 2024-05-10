@@ -10,7 +10,7 @@ const Navbar = () => {
 
     const navLink = <>
         <li className='list-none'><NavLink to='/' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn bg-white hover:bg-white shadow-none hover:border-orange-400' : 'btn  shadow-none border-none'}>Home</NavLink></li>
-        <li className='list-none'><NavLink to='/' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400 ' : 'btn  shadow-none border-none'}>Add Blog</NavLink></li>
+        <li className='list-none'><NavLink to='/addBlog' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400 ' : 'btn  shadow-none border-none'}>Add Blog</NavLink></li>
         <li className='list-none'><NavLink to='/addTouristsSpots' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn  shadow-none border-none'}>All Blogs</NavLink></li>
         <li className='list-none'><NavLink to='/myList' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn  shadow-none border-none'}>Featured Blogs</NavLink></li>
         <li className='list-none'><NavLink to='/myList' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn  shadow-none border-none'}>Wishlist</NavLink></li>
