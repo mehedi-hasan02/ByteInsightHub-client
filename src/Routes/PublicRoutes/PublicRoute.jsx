@@ -6,6 +6,9 @@ import Register from "../../Component/Register/Register";
 import Error from "../../Component/Error/Error";
 import AddBlog from "../../Component/AddBlog/AddBlog";
 import BlogDetails from "../../Component/Home/BlogDetails";
+import AllBlogs from "../../Component/AllBlogs/AllBlogs";
+import FeatureBlogs from "../../Component/FeatureBlogs/FeatureBlogs";
+import Wishlist from "../../Component/Wishlist/Wishlist";
 
 
 const router = createBrowserRouter([
@@ -35,6 +38,19 @@ const router = createBrowserRouter([
           path: '/blogDetails/:id',
           element: <BlogDetails></BlogDetails>,
           loader: ({params})=>fetch(`http://localhost:8000/blogs/${params.id}`)
+        },
+        {
+          path: '/allBlogs',
+          element: <AllBlogs></AllBlogs>,
+          // loader: ()=> fetch('http://localhost:8000/allBlogs'),
+        },
+        {
+          path: '/featureBlogs',
+          element: <FeatureBlogs></FeatureBlogs>,
+        },
+        {
+          path: '/wishlist',
+          element: <Wishlist></Wishlist>
         }
       ]
     },
