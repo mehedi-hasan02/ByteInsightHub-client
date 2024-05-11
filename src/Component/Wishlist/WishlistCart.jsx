@@ -1,7 +1,23 @@
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-const WishlistCart = ({cartData}) => {
+const WishlistCart = ({cartData,wishlistData,setWishlistData}) => {
     const { _id,title,image,category,short_description } = cartData;
+
+    const handelRemoveWishlist = (id)=>{
+        fetch(`http://localhost:8000/wishlist/${id}`,{
+            method: "DELETE"
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.deletedCount > 0)
+                {
+                    toast.success("Remove successful")
+                    const remaining = wishlistData.filter(data => data._id !== id);
+                    setWishlistData(remaining);
+                }
+        })
+    }
     return (
         <div className="w-full  overflow-hidden bg-white rounded-lg shadow-lg">
             <img className="object-cover object-center w-full h-56" src={image} alt="avatar" />
@@ -18,7 +34,7 @@ const WishlistCart = ({cartData}) => {
                         <button className="btn bg-green-400 text-white hover:bg-green-400">Details</button>
                     </Link>
                     <Link >
-                        <button className="btn bg-green-400 text-white hover:bg-green-400">Remove Wishlist</button>
+                        <button onClick={()=>handelRemoveWishlist(_id)} className="btn bg-green-400 text-white hover:bg-green-400">Remove Wishlist</button>
                     </Link>
                 </div>
             </div>

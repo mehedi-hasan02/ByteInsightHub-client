@@ -1,4 +1,3 @@
-import { useLoaderData } from "react-router-dom";
 import BlogCart from "../Home/BlogCart";
 import { useEffect, useState } from "react";
 import axios from "axios";

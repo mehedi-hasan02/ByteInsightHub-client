@@ -7,7 +7,7 @@ const BlogCart = ({ blog }) => {
     const { _id,title,image,category,short_description } = blog;
 
     const handelWishlist = ()=>{
-        const email = users.email;
+        const email = users?.email;
         const wishlistData = {email,title,image,category,short_description};
         
         fetch('http://localhost:8000/wishlist',{
@@ -39,7 +39,7 @@ const BlogCart = ({ blog }) => {
                     <Link to={`/blogDetails/${_id}`}>
                         <button className="btn bg-green-400 text-white hover:bg-green-400">Details</button>
                     </Link>
-                    <Link to={`/wishlist/${users.email}`}>
+                    <Link to={`/wishlist/${users?.email}`}>
                         <button onClick={handelWishlist} className="btn bg-green-400 text-white hover:bg-green-400">Wishlist</button>
                     </Link>
                 </div>

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import auth from '../Firebase/config.firebase';
@@ -16,11 +16,11 @@ const Navbar = () => {
 
 
     const navLink = <>
-        <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-orange-400 bg-white border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn  shadow-none border-none'}>Home</NavLink></li>
-        <li><NavLink to='/addBlog' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400 ' : 'btn  shadow-none border-none'}>Add Blog</NavLink></li>
-        <li><NavLink to='/allBlogs' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn  shadow-none border-none'}>All Blogs</NavLink></li>
-        <li><NavLink to='/featureBlogs' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn  shadow-none border-none'}>Featured Blogs</NavLink></li>
-        <li><NavLink to='/wishlist' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn  shadow-none border-none'}>Wishlist</NavLink></li>
+        <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-orange-400 bg-white border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white hover:bg-white shadow-none border-none'}>Home</NavLink></li>
+        <li><NavLink to='/addBlog' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400 ' : 'btn bg-white hover:bg-white shadow-none border-none'}>Add Blog</NavLink></li>
+        <li><NavLink to='/allBlogs' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white hover:bg-white shadow-none border-none'}>All Blogs</NavLink></li>
+        <li><NavLink to='/featureBlogs' className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white hover:bg-white shadow-none border-none'}>Featured Blogs</NavLink></li>
+        <li><NavLink to={`wishlist/${users?.email}`} className={({ isActive }) => isActive ? 'text-orange-400 border border-orange-400 btn hover:bg-white shadow-none hover:border-orange-400' : 'btn bg-white hover:bg-white shadow-none border-none'}>Wishlist</NavLink></li>
     </>
 
     return (
