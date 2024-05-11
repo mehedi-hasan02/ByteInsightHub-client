@@ -49,8 +49,9 @@ const router = createBrowserRouter([
           element: <FeatureBlogs></FeatureBlogs>,
         },
         {
-          path: '/wishlist',
-          element: <Wishlist></Wishlist>
+          path: '/wishlist/:email',
+          element: <Wishlist></Wishlist>,
+          loader:({params})=>fetch(`http://localhost:8000/wishlist/${params.email}`),
         }
       ]
     },
