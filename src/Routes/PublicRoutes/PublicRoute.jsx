@@ -9,6 +9,7 @@ import BlogDetails from "../../Component/Home/BlogDetails";
 import AllBlogs from "../../Component/AllBlogs/AllBlogs";
 import FeatureBlogs from "../../Component/FeatureBlogs/FeatureBlogs";
 import Wishlist from "../../Component/Wishlist/Wishlist";
+import UpdateBlog from "../../Component/Home/UpdateBlog";
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
           path: '/wishlist/:email',
           element: <Wishlist></Wishlist>,
           loader:({params})=>fetch(`http://localhost:8000/wishlist/${params.email}`),
+        },
+        {
+          path: '/updateBlog/:id',
+          element: <UpdateBlog></UpdateBlog>,
+          loader:({params})=>fetch(`http://localhost:8000/blogs/${params.id}`),
         }
       ]
     },

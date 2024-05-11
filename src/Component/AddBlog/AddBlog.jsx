@@ -70,10 +70,7 @@ const AddBlog = () => {
                             <option value='' disabled>Select Category</option>
                             <option value='Robotic'>Robotic</option>
                             <option value='Artificial Intelligence'>Artificial Intelligence</option>
-                            {/* <option value='Indonesia'>Indonesia</option>
-                            <option value='Malaysia'>Malaysia</option>
-                            <option value='Vietnam'>Vietnam</option>
-                            <option value='Cambodia'>Cambodia</option> */}
+                            <option value='Machine Learning'>Machine Learning</option>
                         </select>
                     </div>
 
@@ -91,9 +88,6 @@ const AddBlog = () => {
                     </div>
                 </div>
                 <input type="submit" value="Add Blog" className="btn btn-block bg-[#D2B48C] border border-[#331A15] hover:bg-[#D2B48C] hover:border-[#331A15] mt-6" />
-                {/* <div className="flex justify-end mt-6">
-                    <input type="submit" className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</input>
-                </div> */}
             </form>
         </section>
     );
