@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const AddBlog = () => {
+    const {users} = useContext(AuthContext);
     const [selectedCategory, setSelectedCategory] = useState("");
     const handleCountryChange = (e) => {
         setSelectedCategory(e.target.value);
@@ -12,12 +14,13 @@ const AddBlog = () => {
         const form = e.target;
 
         const title = form.title.value;
-        const img = form.image.value;
+        const image = form.image.value;
         const category = selectedCategory;
-        const shortDes = form.shortDescription.value;
-        const longDes = form.longDescription.value;
+        const short_description = form.shortDescription.value;
+        const long_description = form.longDescription.value;
+        const writerEmail = users?.email;
 
-        const blog = { title, img, category, shortDes, longDes }
+        const blog = { title, image, category, short_description, long_description, writerEmail }
 
         fetch('http://localhost:8000/blogs', {
             method: 'POST',

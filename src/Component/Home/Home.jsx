@@ -13,7 +13,7 @@ const Home = () => {
         const form = e.target;
 
         Swal.fire({
-            title: "Subscribe Successful!",
+            title: "Thank you for subscribing to our newsletter!",
             text: "You clicked the button!",
             icon: "success"
           });

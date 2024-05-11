@@ -9,6 +9,7 @@ const AllBlogs = () => {
     const [searchText, setSearchText] = useState('')
     const [search, setSearch] = useState('')
     // const allBlogs = useLoaderData();
+    console.log(blogs);
 
 
     const url = `http://localhost:8000/allBlogs?filter=${filter}&search=${search}`
