@@ -8,7 +8,8 @@ const BlogCart = ({ blog }) => {
 
     const handelWishlist = ()=>{
         const email = users?.email;
-        const wishlistData = {email,title,image,category,short_description};
+        const wishlistID = _id;
+        const wishlistData = {wishlistID,email,title,image,category,short_description};
         
         fetch('http://localhost:8000/wishlist',{
         method: 'POST',

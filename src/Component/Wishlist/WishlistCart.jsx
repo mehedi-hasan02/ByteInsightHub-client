@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const WishlistCart = ({cartData,wishlistData,setWishlistData}) => {
-    const { _id,title,image,category,short_description } = cartData;
+    const { _id,wishlistID,title,image,category,short_description } = cartData;
 
     const handelRemoveWishlist = (id)=>{
         fetch(`http://localhost:8000/wishlist/${id}`,{
@@ -30,7 +30,7 @@ const WishlistCart = ({cartData,wishlistData,setWishlistData}) => {
                 <h1 className="text-xl font-semibold  ">{title}</h1>
                 <p className="py-2 text-gray-700 dark:text-gray-400">{short_description}</p>
                 <div className="flex gap-5 items-center mt-4 ">
-                    <Link to={`/blogDetails/${_id}`}>
+                    <Link to={`/blogDetails/${wishlistID}`}>
                         <button className="btn bg-green-400 text-white hover:bg-green-400">Details</button>
                     </Link>
                     <Link >

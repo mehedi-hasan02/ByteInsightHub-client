@@ -13,30 +13,33 @@ const UpdateBlog = () => {
     };
     const navigate = useNavigate();
 
-    const handelUpdateBlog = async e =>{
+    const handelUpdateBlog = async e => {
         e.preventDefault();
         const form = e.target;
 
         const title = form.title.value;
-        const img = form.image.value;
+        const image = form.image.value;
         const category = selectedCategory;
-        const shortDes = form.shortDescription.value;
-        const longDes = form.longDescription.value;
+        const short_description = form.shortDescription.value;
+        const long_description = form.longDescription.value;
 
-        const blog = { title, img, category, shortDes, longDes }
+        const blog = {
+            title, image, category, short_description,
+            long_description
+        }
 
         try {
             const { data } = await axios.put(
-              `http://localhost:8000/blogs/${loadedData?._id}`,
-              blog
+                `http://localhost:8000/blogs/${loadedData?._id}`,
+                blog
             )
             console.log(data)
             toast.success('Job Data Updated Successfully!')
             navigate('/')
-          } catch (err) {
+        } catch (err) {
             console.log(err)
             toast.error(err.message)
-          }
+        }
     }
 
     return (
