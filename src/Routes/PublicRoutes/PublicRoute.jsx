@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         {
             path: '/',
             element:<Home></Home>,
-            loader: ()=>fetch('http://localhost:8000/blogs'),
+            // loader: ()=>fetch('http://localhost:8000/blogs'),
         },
         {
             path: '/login',

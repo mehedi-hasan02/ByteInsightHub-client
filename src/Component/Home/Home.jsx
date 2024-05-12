@@ -1,12 +1,18 @@
-import { useLoaderData } from 'react-router-dom';
 import Carousel from '../Banner/Carousel';
 import BlogCart from './BlogCart';
 import Swal from 'sweetalert2';
 import newsletterImg from '../../assets/newsletter.png'
+import { useQuery } from '@tanstack/react-query';
 
 const Home = () => {
 
-    const blogs = useLoaderData();
+    const {data: blogs} = useQuery({
+        queryKey: ['recentHomeBlogs'],
+        queryFn: async ()=>{
+            const res = await fetch('http://localhost:8000/blogs');
+            return res.json();
+        }
+    })
 
     const handelNewsletter = e =>{
         e.preventDefault();
