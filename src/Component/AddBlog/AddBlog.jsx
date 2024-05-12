@@ -50,7 +50,7 @@ const AddBlog = () => {
             <h2 className="text-lg font-semibold  capitalize ">Add New Blog</h2>
 
             <form onSubmit={handelAddBlog}>
-                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                <div className="lg:grid lg:grid-cols-2 gap-5">
                     <div>
                         <label className="label">
                             <span className="label-text text-xl font-semibold">Title</span>
@@ -81,7 +81,7 @@ const AddBlog = () => {
                         <label className="label">
                             <span className="label-text text-xl font-semibold">Short Description</span>
                         </label>
-                        <textarea name="shortDescription" className="textarea textarea-bordered w-full" required></textarea>
+                        <textarea name="shortDescription" className="textarea textarea-bordered w-full h-[23px]" required></textarea>
                     </div>
                     <div className="col-span-2">
                         <label className="label">

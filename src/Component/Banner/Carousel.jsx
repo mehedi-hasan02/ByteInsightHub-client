@@ -32,19 +32,19 @@ const Carousel = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide>
+                <SwiperSlide className='px-1 md:px-2'>
                     <Slide image={image1}
                         text='Discover the transformative power of AI robots, shaping industries and driving innovation towards a future of limitless potential and unprecedented efficiency'
                     >
                     </Slide>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='px-1 md:px-2'>
                     <Slide image={image2}
                     text='Embrace the future with AI robots, pioneers of innovation reshaping industries worldwide, offering unparalleled efficiency and unlocking endless possibilities for tomorrow advancements.'
                     >
                     </Slide>
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide className='px-1 md:px-2'>
                     <Slide
                     image={image3}
                     text='Embark on a journey into the future with AI-powered robots, catalysts of innovation transforming industries and unlocking boundless potential for tomorrows advancements and unparalleled efficiency.'

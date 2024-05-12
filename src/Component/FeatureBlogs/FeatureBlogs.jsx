@@ -4,8 +4,9 @@ import MUIDataTable from "mui-datatables";
 
 const FeatureBlogs = () => {
   const { data: blogs } = useQuery({
-    queryKey: ['recentHomeBlogs'],
+    queryKey: ['topPost'],
     queryFn: async () => {
+      // const res = await fetch('http://localhost:8000/topPost');
       const res = await fetch('http://localhost:8000/blogs');
       return res.json();
     }
@@ -13,11 +14,6 @@ const FeatureBlogs = () => {
   const data = blogs ? blogs.map(blog => {
     return { image: blog.image, title: blog.title }
   }) : [];
-
-
-  console.log(data);
-  // const columns = ["Name", "Company", "City", "State"];
-  // console.log(data);
   const columns = [
     {
       name: "image",

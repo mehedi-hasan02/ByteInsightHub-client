@@ -34,27 +34,22 @@ const Home = () => {
                 <div>
                     <h1>Recent Blogs</h1>
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1 md:px-2'>
                     {
                         blogs?.slice(0, 6).map(blog => <BlogCart key={blog._id} blog={blog}></BlogCart>)
                     }
                 </div>
 
                 {/* newsletter section */}
-                <div className='bg-gradient-to-r from-cyan-500 to-blue-500 mt-10 mb-10 p-24 text-center space-y-3 rounded-xl'>
+                <div className='bg-gradient-to-r from-cyan-500 to-blue-500 mt-10 mb-10 p-5 md:p-16 lg:p-24 text-center space-y-3 rounded-xl'>
                     <div>
                         <img src={newsletterImg} alt="" className='h-[100px] mx-auto'/>
                     </div>
                     <div className='space-y-3'>
-                        <h1 className='text-5xl text-white font-bold'>Subscribe Newsletter</h1>
-                        <p className='text-2xl w-1/2 mx-auto'>You will never miss our latest blog.Our newsletter is once a week, every friday</p>
+                        <h1 className='text-2xl md:text-3x llg:text-5xl text-white font-bold'>Subscribe Newsletter</h1>
+                        <p className='lg:text-2xl lg:w-1/2 mx-auto'>You will never miss our latest blog.Our newsletter is once a week, every friday</p>
                     </div>
-                    <div className='w-1/2 mx-auto'>
-                        {/* <form className="input input-bordered flex items-center gap-2 relative">
-                            <input type="text" className="grow " placeholder="abc@gmail.com" required/>
-                            <input type='submit' value='Subscribe' className="btn absolute right-0 bg-pink-400 text-white  hover:bg-pink-400"/>
-                            <button className="btn absolute right-0 text-white bg-pink-400 hover:bg-pink-400">Subscribe</button>
-                        </form> */}
+                    <div className='w-full lg:w-1/2 mx-auto'>
                         <form onSubmit={handelNewsletter} className="input input-bordered flex items-center gap-2 relative">
                             <input type="email" className="grow" placeholder="abc@gmail.com" required />
                             <button className="btn absolute right-0 text-white bg-pink-400 hover:bg-pink-400">Subscribe</button>
