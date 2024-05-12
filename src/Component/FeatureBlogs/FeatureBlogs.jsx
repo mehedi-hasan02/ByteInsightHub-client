@@ -6,8 +6,7 @@ const FeatureBlogs = () => {
   const { data: blogs } = useQuery({
     queryKey: ['topPost'],
     queryFn: async () => {
-      // const res = await fetch('http://localhost:8000/topPost');
-      const res = await fetch('http://localhost:8000/blogs');
+      const res = await fetch('http://localhost:8000/topPost');
       return res.json();
     }
   })

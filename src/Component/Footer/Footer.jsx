@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-black text-white rounded">
-            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold">Easy Tour</h1>
+            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold">ByteInsightHub</h1>
             <nav className="grid grid-cols-1 md:grid-flow-col lg:grid-flow-col gap-4">
                 <Link className="link link-hover">About us</Link>
                 <Link to='/contactUs' className="link link-hover">Contact</Link>
@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
             </nav>
             <aside>
-                <p>Copyright © 2024 - All right reserved by EasyTour Travel Agency LTD</p>
+                <p>Copyright © 2024 - All right reserved by ByteInsightHub</p>
             </aside>
         </footer>
     );
