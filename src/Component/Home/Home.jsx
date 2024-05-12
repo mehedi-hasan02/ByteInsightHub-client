@@ -3,6 +3,7 @@ import BlogCart from './BlogCart';
 import Swal from 'sweetalert2';
 import newsletterImg from '../../assets/newsletter.png'
 import { useQuery } from '@tanstack/react-query';
+import ScienceCart from './Science/ScienceCart';
 
 const Home = () => {
 
@@ -13,6 +14,16 @@ const Home = () => {
             return res.json();
         }
     })
+
+    const {data: scienceBlogs} = useQuery({
+        queryKey: ['scienceData'],
+        queryFn: async ()=>{
+            const res = await fetch('http://localhost:8000/scienceBlogs');
+            return res.json();
+        }
+    })
+
+    // const date = new Date().toLocaleDateString();
 
     const handelNewsletter = e =>{
         e.preventDefault();
@@ -27,16 +38,32 @@ const Home = () => {
           form.reset();
     }
 
+    // if(isLoading) return <div><span className="loading loading-spinner loading-md"></span>
+    // </div>
+
     return (
         <div>
             <div className='mt-10'>
                 <Carousel></Carousel>
-                <div>
-                    <h1>Recent Blogs</h1>
+                <div className='text-center mt-16 mb-10 space-y-5'>
+                    <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold'>Recent Blogs</h1>
+                    <p className='lg:w-3/4 mx-auto'>Stay Updated with the Latest in Tech! Explore our Recent Posts Section for the Newest Trends, Insights, and Innovations in Technology and Gadgets.</p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1 md:px-2'>
                     {
                         blogs?.slice(0, 6).map(blog => <BlogCart key={blog._id} blog={blog}></BlogCart>)
+                    }
+                </div>
+
+                {/* science section */}
+                <div className='text-center mt-16 mb-10 space-y-5'>
+                    <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold'>Science Post</h1>
+                    <p className='lg:w-3/4 mx-auto'>Discover the latest insights, discoveries, and advancements in science with our science post section, where we explore the wonders of the natural world and cutting-edge research.</p>
+
+                </div>
+                <div className='grid grid-cols-3 gap-8'>
+                    {
+                        scienceBlogs?.map(blog=><ScienceCart key={blog._id} blog={blog}></ScienceCart>)
                     }
                 </div>
 

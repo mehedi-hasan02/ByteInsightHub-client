@@ -1,19 +1,20 @@
 import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+// import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
-const BlogDetails = () => {
+const ScienceDetails = () => {
     const { id } = useParams();
     const { users } = useContext(AuthContext);
     const name = users?.displayName;
     const image = users?.photoURL;
 
     const { data: blogDetails } = useQuery({
-        queryKey: ['blogDetails', id],
+        queryKey: ['scienceBlog', id],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:8000/blogs/${id}`);
+            const res = await fetch(`http://localhost:8000/scienceBlogs/${id}`);
             return res.json();
         }
     })
@@ -134,4 +135,4 @@ const BlogDetails = () => {
     );
 };
 
-export default BlogDetails;
+export default ScienceDetails;

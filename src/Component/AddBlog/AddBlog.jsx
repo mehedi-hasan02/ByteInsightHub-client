@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddBlog = () => {
@@ -8,19 +9,25 @@ const AddBlog = () => {
     const handleCountryChange = (e) => {
         setSelectedCategory(e.target.value);
     };
+    console.log(users);
 
     const handelAddBlog = e => {
         e.preventDefault();
         const form = e.target;
+        const postDate = new Date().toLocaleDateString();
 
         const title = form.title.value;
         const image = form.image.value;
         const category = selectedCategory;
         const short_description = form.shortDescription.value;
         const long_description = form.longDescription.value;
+        const writerName = users?.displayName;
         const writerEmail = users?.email;
+        const writerImage = users?.photoURL;
 
-        const blog = { title, image, category, short_description, long_description, writerEmail }
+
+
+        const blog = { title, image, category, short_description, long_description,writerName, writerEmail,writerImage, postDate }
 
         fetch('http://localhost:8000/blogs', {
             method: 'POST',
@@ -33,14 +40,13 @@ const AddBlog = () => {
             .then(data => {
                 console.log(data);
                 form.reset()
-                // if (data.insertedId) {
-                //     swal({
-                //         title: "Success",
-                //         text: "Added Successfully",
-                //         icon: "success",
-                //         dangerMode: true,
-                //     })
-                // }
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Blog Added Successfully",
+                        text: "You clicked the button!",
+                        icon: "success"
+                      });
+                }
             })
 
     }
@@ -74,6 +80,7 @@ const AddBlog = () => {
                             <option value='Robotic'>Robotic</option>
                             <option value='Artificial Intelligence'>Artificial Intelligence</option>
                             <option value='Machine Learning'>Machine Learning</option>
+                            <option value='Data Science'>Data Science</option>
                         </select>
                     </div>
 

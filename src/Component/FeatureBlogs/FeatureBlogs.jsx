@@ -10,8 +10,15 @@ const FeatureBlogs = () => {
       return res.json();
     }
   })
+
+  console.log(blogs);
+
   const data = blogs ? blogs.map(blog => {
-    return { image: blog.image, title: blog.title }
+    return {
+      image: blog.image,
+      title: blog.title,
+      name: blog.writerName
+    }
   }) : [];
   const columns = [
     {
@@ -37,8 +44,7 @@ const FeatureBlogs = () => {
         sort: true,
         customBodyRender: (data) => {
           return (
-            <Avatar variant="rounded" src={data} >
-            </Avatar>
+            <p>{data}</p>
 
           )
         }

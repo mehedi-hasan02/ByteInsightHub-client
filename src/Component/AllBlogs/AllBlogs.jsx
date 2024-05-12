@@ -1,23 +1,35 @@
 import BlogCart from "../Home/BlogCart";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 
 const AllBlogs = () => {
     const [filter, setFilter] = useState('')
-    const [blogs, setBlogs] = useState([]);
+    // const [blogs, setBlogs] = useState([]);
     const [searchText, setSearchText] = useState('')
     const [search, setSearch] = useState('')
 
 
     const url = `http://localhost:8000/allBlogs?filter=${filter}&search=${search}`
-    useEffect(() => {
-        const getData = async () => {
-            const { data } = await axios(url)
-            setBlogs(data)
-        }
-        getData()
-    }, [filter, search])
+    // useEffect(() => {
+    //     const getData = async () => {
+    //         const { data } = await axios(url)
+    //         setBlogs(data)
+    //     }
+    //     getData()
+    // }, [filter, search])
+
+    const { data: blogs, isLoading } = useQuery({
+        queryKey: ['blogs', filter, search],
+        queryFn: async () => {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        },
+        enabled: filter !== null && search !== null // Only fetch when filter and search are not null
+    });
 
     const handleSearch = e => {
         e.preventDefault()
@@ -32,11 +44,13 @@ const AllBlogs = () => {
         setSearchText('')
     }
 
+    if(isLoading)return <div className="text-center"><span className="loading loading-spinner loading-md"></span></div>
 
     return (
-        <div>
-            <div>
-                <h1>All Blogs</h1>
+        <div className="mb-10">
+            <div className="text-center mt-10 mb-8 space-y-3">
+                <h1 className="text-5xl font-bold">All Blogs</h1>
+                <p className="w-3/4 mx-auto">Delve into a Wealth of Knowledge: Explore Our Diverse Collection of Blogs Covering a Wide Range of Topics, from Science and Technology to Culture and Beyond.</p>
             </div>
             <div className="flex flex-col md:flex-row lg:flex-row md:justify-between lg:justify-between mb-10 md:px-2 gap-2">
                 <div className="text-center lg:text-left">
@@ -84,7 +98,7 @@ const AllBlogs = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1 md:px-2'>
                 {
-                    blogs.map(blog => <BlogCart key={blog._id} blog={blog}></BlogCart>)
+                    blogs?.map(blog => <BlogCart key={blog._id} blog={blog}></BlogCart>)
                 }
             </div>
         </div>
