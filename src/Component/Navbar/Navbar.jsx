@@ -37,7 +37,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to='/' className="btn btn-ghost text-xl lg:text-2xl font-bold lg:font-extrabold">
-                    Blog
+                ByteInsightHub
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
