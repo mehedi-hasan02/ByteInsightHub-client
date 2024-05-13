@@ -1,8 +1,11 @@
-# React + Vite
+# ByteInsightHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Live Link:
+[Visit EasyTour](https://rococo-kheer-b232e7.netlify.app/)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Key Feature:
+- Easily navigate through sections with a convenient navbar.
+- User can login using google and GitHub.
+- User not able to add, update blogs data without login.
+- User can comment after reading blog article and also read other comment about this blog
+- User can add blog his/her wishlist for read later

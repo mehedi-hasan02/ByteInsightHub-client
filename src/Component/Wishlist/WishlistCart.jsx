@@ -14,8 +14,6 @@ const WishlistCart = ({cartData,refetch}) => {
                 {
                     toast.success("Remove successful")
                     refetch()
-                    // const remaining = wishlistData.filter(data => data._id !== id);
-                    // setWishlistData(remaining);
                 }
                 
         })

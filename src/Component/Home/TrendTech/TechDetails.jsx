@@ -15,7 +15,7 @@ const TechDetails = () => {
     const { data: blogDetails } = useQuery({
         queryKey: ['scienceBlog', id],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:8000/trendBlogs/${id}`);
+            const res = await fetch(`https://blog-server-side-phi.vercel.app/trendBlogs/${id}`);
             return res.json();
         }
     })
@@ -45,11 +45,13 @@ const TechDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
+                refetch()
                 console.log(data);
             })
+            form.reset();
     }
 
-    const { data: allComment, isLoading } = useQuery({
+    const { data: allComment, isLoading, refetch } = useQuery({
         queryKey: ['blogComments'],
         queryFn: async () => {
             const res = await fetch(`https://blog-server-side-phi.vercel.app/comment/${blogDetails?._id}`);

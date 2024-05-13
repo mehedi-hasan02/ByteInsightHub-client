@@ -72,9 +72,9 @@ const FeatureBlogs = () => {
     selectableRows: false
   };
   return (
-    <div>
+    <div className="mt-10 mb-5">
       <MUIDataTable
-        title={"Employee List"}
+        title={"Top Post"}
         data={data}
         columns={columns}
         options={options}

@@ -68,7 +68,7 @@ const router = createBrowserRouter([
         {
           path: '/techDetails/:id',
           element: <PrivateRoutes><TechDetails></TechDetails></PrivateRoutes>,
-          loader: ({params})=>fetch(`http://localhost:8000/trendBlogs/${params.id}`)
+          loader: ({params})=>fetch(`https://blog-server-side-phi.vercel.app/trendBlogs/${params.id}`)
         }
       ]
     },

@@ -40,11 +40,6 @@ const Register = () => {
 
     return (
         <div className="mt-10 mb-10 p-5">
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>EasyTour-Register</title>
-                <link rel="canonical" href="http://mysite.com/example" />
-            </Helmet>
             <h1 className="text-5xl font-bold text-center mt-5 mb-5">Register now!</h1>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto mt-5">
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">

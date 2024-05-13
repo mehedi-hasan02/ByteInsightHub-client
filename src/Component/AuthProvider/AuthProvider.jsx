@@ -9,7 +9,6 @@ const AuthProvider = ({ children }) => {
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
-    // const githubProvider = new GithubAuthProvider();
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -25,11 +24,6 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
-
-    // const githubLogin = () => {
-    //     setLoading(true);
-    //     return signInWithPopup(auth, githubProvider);
-    // }
 
     const handleUpdateProfile = (name, photo) => {
         return updateProfile(auth.currentUser, {

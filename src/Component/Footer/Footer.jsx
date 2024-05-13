@@ -6,7 +6,7 @@ const Footer = () => {
             <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold">ByteInsightHub</h1>
             <nav className="grid grid-cols-1 md:grid-flow-col lg:grid-flow-col gap-4">
                 <Link to='/' className="link link-hover">Home</Link>
-                <Link to='/contactUs' className="link link-hover">Contact</Link>
+                <Link to='/allBlogs' className="link link-hover">All Blog</Link>
                 <Link className="link link-hover">Jobs</Link>
                 <Link className="link link-hover">Press kit</Link>
             </nav>

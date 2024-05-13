@@ -19,9 +19,6 @@ const TrendTechCart = ({blog}) => {
                     <Link to={`/techDetails/${_id}`}>
                         <button className="btn bg-green-400 text-white hover:bg-green-400">Details</button>
                     </Link>
-                    {/* <Link to={`/wishlist/${users?.email}`}>
-                        <button onClick={handelWishlist} className="btn bg-green-400 text-white hover:bg-green-400">Wishlist</button>
-                    </Link> */}
                 </div>
             </div>
         </div>
