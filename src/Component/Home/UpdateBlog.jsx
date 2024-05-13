@@ -30,7 +30,7 @@ const UpdateBlog = () => {
 
         try {
             const { data } = await axios.put(
-                `http://localhost:8000/blogs/${loadedData?._id}`,
+                `https://blog-server-side-phi.vercel.app/blogs/${loadedData?._id}`,
                 blog
             )
             console.log(data)
@@ -43,8 +43,10 @@ const UpdateBlog = () => {
     }
 
     return (
-        <section className=" p-6 mx-auto rounded-md shadow-md  mt-10">
-            <h2 className="text-4xl font-semibold  capitalize text-center">Update Blog</h2>
+        <section className=" p-6 mx-auto rounded-md shadow-md  mt-10 lg:min-h-[580px]">
+            <div className="mb-5">
+                <h2 className="text-4xl font-semibold  capitalize text-center">Update Blog</h2>
+            </div>
 
             <form onSubmit={handelUpdateBlog}>
                 <div className="lg:grid lg:grid-cols-2 gap-5">
@@ -67,7 +69,6 @@ const UpdateBlog = () => {
                             <span className="label-text text-xl font-semibold">Category</span>
                         </label>
                         <select className="select select-bordered w-full " onChange={handleCategoryChange} value={selectedCategory} required>
-                            {/* <option value='' disabled>Select Category</option> */}
                             <option value='Robotic'>Robotic</option>
                             <option value='Artificial Intelligence'>Artificial Intelligence</option>
                             <option value='Machine Learning'>Machine Learning</option>

@@ -14,7 +14,7 @@ const ScienceDetails = () => {
     const { data: blogDetails } = useQuery({
         queryKey: ['scienceBlog', id],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:8000/scienceBlogs/${id}`);
+            const res = await fetch(`https://blog-server-side-phi.vercel.app/scienceBlogs/${id}`);
             return res.json();
         }
     })
@@ -34,7 +34,7 @@ const ScienceDetails = () => {
 
         const commentData = { name, image, comment, blogID };
 
-        fetch('http://localhost:8000/comment', {
+        fetch('https://blog-server-side-phi.vercel.app/comment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,18 +47,10 @@ const ScienceDetails = () => {
             })
     }
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:8000/comment/${blogDetails?._id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAllComment(data);
-    //         })
-    // }, [])
-
     const { data: allComment, isLoading } = useQuery({
         queryKey: ['blogComments'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:8000/comment/${blogDetails?._id}`);
+            const res = await fetch(`https://blog-server-side-phi.vercel.app/comment/${blogDetails?._id}`);
             return res.json();
         }
     })

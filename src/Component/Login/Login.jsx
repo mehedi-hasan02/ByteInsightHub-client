@@ -1,16 +1,15 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { FaGofore, FaGithub } from "react-icons/fa";
+import { FaGofore } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from 'react-hot-toast';
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { Helmet } from "react-helmet";
 
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const { signIn, googleLogin, } = useContext(AuthContext);
     const [logInError, setLogInError] = useState('');
     const navigate = useNavigate();
 
@@ -49,11 +48,6 @@ const Login = () => {
 
     return (
             <div className="hero-content flex-col w-full lg:w-[1000px] lg:h-[690px] mx-auto">
-                <Helmet>
-                <meta charSet="utf-8" />
-                <title>EasyTour-Login</title>
-                <link rel="canonical" href="http://mysite.com/example" />
-            </Helmet>
                 <div className="text-center lg:text-left mb-10">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>
@@ -85,9 +79,6 @@ const Login = () => {
                         <div className="bg-red-500 p-1 rounded-2xl text-white ">
                             <Link className="flex justify-center items-center gap-2" onClick={() => handleSocialLogin(googleLogin)}><FaGofore />Google</Link>
                         </div>
-                        {/* <div className="bg-gray-500 p-1 rounded-2xl text-white text-center">
-                            <Link className="flex justify-center items-center gap-2" onClick={() => handleSocialLogin(githubLogin)}><FaGithub />Github</Link>
-                        </div> */}
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>

@@ -5,19 +5,11 @@ import { useQuery } from "@tanstack/react-query";
 
 const AllBlogs = () => {
     const [filter, setFilter] = useState('')
-    // const [blogs, setBlogs] = useState([]);
     const [searchText, setSearchText] = useState('')
     const [search, setSearch] = useState('')
 
 
-    const url = `http://localhost:8000/allBlogs?filter=${filter}&search=${search}`
-    // useEffect(() => {
-    //     const getData = async () => {
-    //         const { data } = await axios(url)
-    //         setBlogs(data)
-    //     }
-    //     getData()
-    // }, [filter, search])
+    const url = `https://blog-server-side-phi.vercel.app/allBlogs?filter=${filter}&search=${search}`
 
     const { data: blogs, isLoading } = useQuery({
         queryKey: ['blogs', filter, search],
@@ -28,7 +20,7 @@ const AllBlogs = () => {
             }
             return response.json();
         },
-        enabled: filter !== null && search !== null // Only fetch when filter and search are not null
+        enabled: filter !== null && search !== null
     });
 
     const handleSearch = e => {
@@ -39,7 +31,6 @@ const AllBlogs = () => {
 
     const handleReset = () => {
         setFilter('')
-        // setSort('')
         setSearch('')
         setSearchText('')
     }
@@ -57,7 +48,6 @@ const AllBlogs = () => {
                     <select
                         onChange={e => {
                             setFilter(e.target.value)
-                            // setCurrentPage(1)
                         }}
                         value={filter}
                         name='category'

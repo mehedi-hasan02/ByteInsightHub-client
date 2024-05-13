@@ -13,7 +13,7 @@ const BlogDetails = () => {
     const { data: blogDetails } = useQuery({
         queryKey: ['blogDetails', id],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:8000/blogs/${id}`);
+            const res = await fetch(`https://blog-server-side-phi.vercel.app/blogs/${id}`);
             return res.json();
         }
     })
@@ -33,7 +33,7 @@ const BlogDetails = () => {
 
         const commentData = { name, image, comment, blogID };
 
-        fetch('http://localhost:8000/comment', {
+        fetch('https://blog-server-side-phi.vercel.app/comment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const BlogDetails = () => {
     const { data: allComment, isLoading } = useQuery({
         queryKey: ['blogComments'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:8000/comment/${blogDetails?._id}`);
+            const res = await fetch(`https://blog-server-side-phi.vercel.app/comment/${blogDetails?._id}`);
             return res.json();
         }
     })
@@ -79,13 +79,13 @@ const BlogDetails = () => {
                             <p className="dark:text-white">Category: {blogDetails?.category}</p>
 
                             <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
-                                <span>Shot Description:</span>
+                                <span className="font-bold">Shot Description:</span>
                                 {
                                     blogDetails?.short_description
                                 }
                             </p>
                             <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
-                                <span>Long Description:</span>
+                                <span className="font-bold">Long Description:</span>
                                 {
                                     blogDetails?.long_description
                                 }

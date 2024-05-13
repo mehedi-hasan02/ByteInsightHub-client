@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 
 const AddBlog = () => {
-    const {users} = useContext(AuthContext);
+    const { users } = useContext(AuthContext);
     const [selectedCategory, setSelectedCategory] = useState("");
     const handleCountryChange = (e) => {
         setSelectedCategory(e.target.value);
@@ -27,7 +27,7 @@ const AddBlog = () => {
 
 
 
-        const blog = { title, image, category, short_description, long_description,writerName, writerEmail,writerImage, postDate }
+        const blog = { title, image, category, short_description, long_description, writerName, writerEmail, writerImage, postDate }
 
         fetch('http://localhost:8000/blogs', {
             method: 'POST',
@@ -45,15 +45,17 @@ const AddBlog = () => {
                         title: "Blog Added Successfully",
                         text: "You clicked the button!",
                         icon: "success"
-                      });
+                    });
                 }
             })
 
     }
 
     return (
-        <section className=" p-6 mx-auto rounded-md shadow-md  mt-10">
-            <h2 className="text-lg font-semibold  capitalize ">Add New Blog</h2>
+        <section className=" p-6 mx-auto rounded-md shadow-md  mt-10 lg:min-h-[580px]">
+            <div className="text-center mb-5">
+                <h2 className="text-lg lg:text-5xl font-semibold  capitalize ">Add New Blog</h2>
+            </div>
 
             <form onSubmit={handelAddBlog}>
                 <div className="lg:grid lg:grid-cols-2 gap-5">

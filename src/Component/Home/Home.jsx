@@ -10,7 +10,7 @@ const Home = () => {
     const {data: blogs} = useQuery({
         queryKey: ['recentHomeBlogs'],
         queryFn: async ()=>{
-            const res = await fetch('http://localhost:8000/blogs');
+            const res = await fetch('https://blog-server-side-phi.vercel.app/blogs');
             return res.json();
         }
     })
@@ -18,12 +18,10 @@ const Home = () => {
     const {data: scienceBlogs} = useQuery({
         queryKey: ['scienceData'],
         queryFn: async ()=>{
-            const res = await fetch('http://localhost:8000/scienceBlogs');
+            const res = await fetch('https://blog-server-side-phi.vercel.app/scienceBlogs');
             return res.json();
         }
     })
-
-    // const date = new Date().toLocaleDateString();
 
     const handelNewsletter = e =>{
         e.preventDefault();
@@ -61,7 +59,7 @@ const Home = () => {
                     <p className='lg:w-3/4 mx-auto'>Discover the latest insights, discoveries, and advancements in science with our science post section, where we explore the wonders of the natural world and cutting-edge research.</p>
 
                 </div>
-                <div className='grid grid-cols-3 gap-8'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1 md:px-2 lg:px-0'>
                     {
                         scienceBlogs?.map(blog=><ScienceCart key={blog._id} blog={blog}></ScienceCart>)
                     }

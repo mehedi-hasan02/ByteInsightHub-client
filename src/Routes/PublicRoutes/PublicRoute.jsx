@@ -23,7 +23,6 @@ const router = createBrowserRouter([
         {
             path: '/',
             element:<Home></Home>,
-            // loader: ()=>fetch('http://localhost:8000/blogs'),
         },
         {
             path: '/login',
@@ -40,12 +39,11 @@ const router = createBrowserRouter([
         {
           path: '/blogDetails/:id',
           element: <BlogDetails></BlogDetails>,
-          loader: ({params})=>fetch(`http://localhost:8000/blogs/${params.id}`)
+          loader: ({params})=>fetch(`https://blog-server-side-phi.vercel.app/blogs/${params.id}`)
         },
         {
           path: '/allBlogs',
           element: <AllBlogs></AllBlogs>,
-          // loader: ()=> fetch('http://localhost:8000/allBlogs'),
         },
         {
           path: '/featureBlogs',
@@ -54,17 +52,17 @@ const router = createBrowserRouter([
         {
           path: '/wishlist/:email',
           element: <Wishlist></Wishlist>,
-          loader:({params})=>fetch(`http://localhost:8000/wishlist/${params.email}`),
+          loader:({params})=>fetch(`https://blog-server-side-phi.vercel.app/wishlist/${params.email}`),
         },
         {
           path: '/updateBlog/:id',
           element: <PrivateRoutes><UpdateBlog></UpdateBlog></PrivateRoutes>,
-          loader:({params})=>fetch(`http://localhost:8000/blogs/${params.id}`),
+          loader:({params})=>fetch(`https://blog-server-side-phi.vercel.app/blogs/${params.id}`),
         },
         {
           path: '/scienceDetails/:id',
           element: <ScienceDetails></ScienceDetails>,
-          loader: ({params})=>fetch(`http://localhost:8000/scienceBlogs/${params.id}`)
+          loader: ({params})=>fetch(`https://blog-server-side-phi.vercel.app/${params.id}`)
         }
       ]
     },

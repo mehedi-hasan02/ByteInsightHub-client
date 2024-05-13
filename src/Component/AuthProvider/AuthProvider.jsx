@@ -1,4 +1,4 @@
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/config.firebase";
 import axios from "axios";
@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
+    // const githubProvider = new GithubAuthProvider();
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -26,10 +26,10 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider)
     }
 
-    const githubLogin = () => {
-        setLoading(true);
-        return signInWithPopup(auth, githubProvider);
-    }
+    // const githubLogin = () => {
+    //     setLoading(true);
+    //     return signInWithPopup(auth, githubProvider);
+    // }
 
     const handleUpdateProfile = (name, photo) => {
         return updateProfile(auth.currentUser, {
@@ -74,7 +74,7 @@ const AuthProvider = ({ children }) => {
         handleUpdateProfile,
         logOut,
         googleLogin,
-        githubLogin,
+        // githubLogin,
         loading,
     }
 
