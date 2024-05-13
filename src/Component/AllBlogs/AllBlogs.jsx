@@ -55,9 +55,10 @@ const AllBlogs = () => {
                         className='border p-4 rounded-lg'
                     >
                         <option value=''>Filter By Category</option>
-                        <option value='Robotics'>Robotics</option>
+                        <option value='Robotic'>Robotic</option>
                         <option value='Big Data'>Big Data</option>
                         <option value='Machine Learning'>Machine Learning</option>
+                        <option value='Data Science'>Data Science</option>
                     </select>
                 </div>
                 <div className="flex flex-col lg:flex-row md:flex-row gap-3">

@@ -1,10 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateBlog = () => {
-    const loadedData = useLoaderData();
+    // const loadedData = useLoaderData();
+    const {id} = useParams();
+    const { data: loadedData } = useQuery({
+        queryKey: ['updateData', id],
+        queryFn: async () => {
+            const res = await fetch(`https://blog-server-side-phi.vercel.app/blogs/${id}`, {credentials: 'include'});
+            return res.json();
+        }
+    })
     const oldCategory = loadedData?.category;
     console.log(oldCategory);
     const [selectedCategory, setSelectedCategory] = useState(oldCategory);
@@ -12,6 +21,8 @@ const UpdateBlog = () => {
         setSelectedCategory(e.target.value);
     };
     const navigate = useNavigate();
+
+    
 
     const handelUpdateBlog = async e => {
         e.preventDefault();

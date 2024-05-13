@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import auth from '../Firebase/config.firebase';
 import { FaRegUserCircle } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
 
@@ -36,9 +37,18 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost text-xl lg:text-2xl font-bold lg:font-extrabold">
-                ByteInsightHub
-                </Link>
+                <motion.div
+                    initial= {{x:-1000}}
+                    animate= {{x:0}}
+                    transition={{
+                        duration: '2',
+                        delay: '.3'
+                    }}
+                >
+                    <Link to='/' className="btn btn-ghost text-xl lg:text-2xl font-bold lg:font-extrabold">
+                        ByteInsightHub
+                    </Link>
+                </motion.div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -46,35 +56,35 @@ const Navbar = () => {
                         navLink
                     }
                 </ul>
-            </div>           
-                <div className="navbar-end z-50">
-                    <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                {
-                                    users ? <img className="" alt="User Avatar" src={users.photoURL} title={users.displayName} />
-                                        :
-                                        <FaRegUserCircle className="w-[40px] h-[40px]"/>
-                                }
-                            </div>
-                        </div>
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+            </div>
+            <div className="navbar-end z-50">
+                <div className="dropdown dropdown-end">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
                             {
-                                users ?
-                                    <div>
-                                        <Link onClick={handelSingOut} className="btn bg-green-500 text-white hover:bg-green-500 text-white w-full">Log Out</Link>
-
-                                    </div>
+                                users ? <img className="" alt="User Avatar" src={users.photoURL} title={users.displayName} />
                                     :
-                                    <div className="flex flex-col">
-                                        <Link className="btn bg-green-500 text-white hover:bg-green-500 text-white" to='/login'>Login</Link>
-                                        <Link className="btn bg-green-500 text-white hover:bg-green-500 text-white" to='/register'>Register</Link>
-                                    </div>
+                                    <FaRegUserCircle className="w-[40px] h-[40px]" />
                             }
-                        </ul>
+                        </div>
                     </div>
+                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                        {
+                            users ?
+                                <div>
+                                    <Link onClick={handelSingOut} className="btn bg-green-500 text-white hover:bg-green-500 text-white w-full">Log Out</Link>
+
+                                </div>
+                                :
+                                <div className="flex flex-col">
+                                    <Link className="btn bg-green-500 text-white hover:bg-green-500 text-white" to='/login'>Login</Link>
+                                    <Link className="btn bg-green-500 text-white hover:bg-green-500 text-white" to='/register'>Register</Link>
+                                </div>
+                        }
+                    </ul>
                 </div>
-            
+            </div>
+
         </div>
     );
 };
