@@ -23,7 +23,7 @@ const Register = () => {
         const { name,email, password,photo } = data;
 
         if (!/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{6,}/.test(password)) {
-            toast.error('Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long.');
+            toast.error('Password must have at least one uppercase letter, one lowercase letter, one number, one special character and be at least 6 characters long.');
             return;
         }
         createUser(email, password)
@@ -31,10 +31,9 @@ const Register = () => {
             handleUpdateProfile(name,photo)
             logOut()
             toast.success('User created successfully');
-            navigate('/')
+            navigate('/login')
         })
             .catch(error => {
-                // setRegisterError(error.message);
             })
 
     }
@@ -90,9 +89,6 @@ const Register = () => {
                         <Link className="text-blue-800" to='/login'> Login</Link>
                     </p>
                 </form>
-                {/* {
-                    registerError && <p>{registerError}</p>
-                } */}
             </div>
         </div>
     );

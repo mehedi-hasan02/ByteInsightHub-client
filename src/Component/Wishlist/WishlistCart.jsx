@@ -1,11 +1,11 @@
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-const WishlistCart = ({cartData,wishlistData,setWishlistData}) => {
+const WishlistCart = ({cartData,refetch}) => {
     const { _id,wishlistID,title,image,category,short_description } = cartData;
 
     const handelRemoveWishlist = (id)=>{
-        fetch(`http://localhost:8000/wishlist/${id}`,{
+        fetch(`https://blog-server-side-phi.vercel.app/wishlist/${id}`,{
             method: "DELETE"
         })
         .then(res=>res.json())
@@ -13,9 +13,11 @@ const WishlistCart = ({cartData,wishlistData,setWishlistData}) => {
             if(data.deletedCount > 0)
                 {
                     toast.success("Remove successful")
-                    const remaining = wishlistData.filter(data => data._id !== id);
-                    setWishlistData(remaining);
+                    refetch()
+                    // const remaining = wishlistData.filter(data => data._id !== id);
+                    // setWishlistData(remaining);
                 }
+                
         })
     }
     return (

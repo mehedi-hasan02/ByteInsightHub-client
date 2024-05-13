@@ -50,12 +50,13 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
 
             if (currUser) {
-                axios.post('http://localhost:8000/jwt', loggedUser, { withCredentials: true })
+                axios.post('https://blog-server-side-phi.vercel.app/jwt', loggedUser, { withCredentials: true })
                     .then(res => {
                         console.log('token response', res.data);
                     })
-            }else{
-                axios.post('http://localhost:8000/logout', loggedUser, {withCredentials: true})
+                }
+            else{
+                axios.post('https://blog-server-side-phi.vercel.app/logout', loggedUser, {withCredentials: true})
                 .then(res=>{
                     console.log(res.data);
                 })

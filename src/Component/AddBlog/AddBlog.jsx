@@ -29,7 +29,7 @@ const AddBlog = () => {
 
         const blog = { title, image, category, short_description, long_description, writerName, writerEmail, writerImage, postDate }
 
-        fetch('http://localhost:8000/blogs', {
+        fetch('https://blog-server-side-phi.vercel.app/blogs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const UpdateBlog = () => {
     const { data: loadedData } = useQuery({
         queryKey: ['updateData', id],
         queryFn: async () => {
-            const res = await fetch(`https://blog-server-side-phi.vercel.app/blogs/${id}`, {credentials: 'include'});
+            const res = await fetch(`https://blog-server-side-phi.vercel.app/blogs/${id}`,{credentials: 'include'});
             return res.json();
         }
     })
@@ -42,7 +42,8 @@ const UpdateBlog = () => {
         try {
             const { data } = await axios.put(
                 `https://blog-server-side-phi.vercel.app/blogs/${loadedData?._id}`,
-                blog
+                blog,
+                {withCredentials: 'true'}
             )
             console.log(data)
             toast.success('Job Data Updated Successfully!')

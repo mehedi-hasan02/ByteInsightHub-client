@@ -1,24 +1,24 @@
 [
     {
-      "title": "James Webb Telescope",
-      "image": "https://iili.io/J6qT08B.webp",
-      "category": "Science",
-      "short_description": "The James Webb Telescope is NASA's ambitious space observatory set to explore the cosmos with unprecedented sensitivity, enabling groundbreaking discoveries in astronomy and astrophysics.",
-      "long_description": "The James Webb Telescope, NASA's flagship space observatory, promises to revolutionize our understanding of the universe. With its cutting-edge technology and superior sensitivity to infrared light, it will peer deeper into space and farther back in time than ever before, unveiling the mysteries of cosmic origins, planetary systems, and the formation of galaxies."
+      "title": "Robotaxi testing in Phoenix",
+      "image": "https://iili.io/J6uI9Se.webp",
+      "category": "Technology",
+      "short_description": "Cruise has started testing its autonomous vehicles in Phoenix, with plans to begin “supervised” driving in the city more than six months after the GM self-driving subsidiary halted its driverless operations across the United States.",
+      "long_description": "Cruise announced Monday in a blog post that it will begin testing two vehicles in autonomous mode on public roads in metro Phoenix. A human safety operator will be behind the wheel during this phase of testing, according to the company. Another eight Cruise autonomous vehicles will continue to be manually driven in the area."
     },
     {
-      "title": "Quantum Physics",
-      "image": "https://iili.io/J6qc72a.webp",
-      "category": "Science",
-      "short_description": "Quantum physics is the branch of physics that explores the behavior of matter and energy at the smallest scales, revealing the fascinating and often counterintuitive nature of quantum phenomena.",
-      "long_description": "Quantum physics is the fundamental theory that describes the behavior of matter and energy at the smallest scales, such as atoms and subatomic particles. It revolutionized our understanding of the universe by introducing principles like superposition, entanglement, and uncertainty, challenging classical notions of reality and paving the way for technologies like quantum computing and cryptography."
+      "title": "The women in AI making a difference",
+      "image": "https://iili.io/J6uu3GV.webp",
+      "category": "Technology",
+      "short_description": "Women in AI are shaping the field with groundbreaking research, innovative applications, and advocacy for diversity. Their contributions range from advancing technology to promoting ethical AI practices.",
+      "long_description": "Women in AI are pivotal figures driving innovation and inclusivity in the field. From pioneering research in machine learning and natural language processing to leading initiatives that address bias and ethics in AI, their impact extends across academia, industry, and societal discourse, shaping the future of artificial intelligence."
     },
     {
-      "title": "Unraveling the Mysteries of Quantum Entanglement",
-      "image": "https://iili.io/J6qlhMP.jpg",
-      "category": "Science",
-      "short_description": "Explore the enigmatic world of quantum entanglement, where particles become interconnected regardless of distance, defying classical physics and offering insight into the nature of reality.",
-      "long_description": "Dive into the fascinating phenomenon of quantum entanglement, where particles become inexplicably interconnected, influencing each other's states instantaneously regardless of distance. This mysterious aspect of quantum mechanics challenges classical notions of causality and locality, offering profound implications for our understanding of the quantum world and potential applications in quantum computing, teleportation, and secure communication."
+      "title": "OpenAI releases GPT-4o",
+      "image": "https://iili.io/J6uuiHF.jpg",
+      "category": "Technology",
+      "short_description": "OpenAI's GPT-4o marks a significant advancement in natural language processing, boasting enhanced understanding, coherence, and versatility in generating human-like text across various applications and domains.",
+      "long_description": "OpenAI's release of GPT-4o heralds a new era in natural language processing, characterized by unprecedented capabilities in understanding context, generating coherent text, and adapting to diverse tasks and domains. This model represents a leap forward in AI technology, promising transformative impacts across industries, research, and communication platforms."
     }
     
   ]

@@ -6,7 +6,7 @@ const FeatureBlogs = () => {
   const { data: blogs } = useQuery({
     queryKey: ['topPost'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:8000/topPost');
+      const res = await fetch('https://blog-server-side-phi.vercel.app/topPost');
       return res.json();
     }
   })
@@ -15,7 +15,7 @@ const FeatureBlogs = () => {
 
   const data = blogs ? blogs.map(blog => {
     return {
-      image: blog.image,
+      image: blog.writerImage,
       title: blog.title,
       name: blog.writerName
     }

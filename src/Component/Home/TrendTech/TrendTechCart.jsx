@@ -1,30 +1,7 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
 
-const ScienceCart = ({ blog }) => {
-    const { users } = useContext(AuthContext);
+const TrendTechCart = ({blog}) => {
     const { _id, title, image, category, short_description } = blog;
-
-    // const handelWishlist = () => {
-    //     const email = users?.email;
-    //     const wishlistID = _id;
-    //     const wishlistData = { wishlistID, email, title, image, category, short_description };
-
-    //     fetch('https://blog-server-side-phi.vercel.app/wishlist', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(wishlistData)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //         })
-    // }
-
-
     return (
         <div className="w-full  overflow-hidden bg-white rounded-lg shadow-lg">
             <img className="object-cover object-center w-full h-56" src={image} alt="avatar" />
@@ -39,7 +16,7 @@ const ScienceCart = ({ blog }) => {
                     <p className="py-2 text-gray-700 dark:text-gray-400">{short_description}</p>
                 </div>
                 <div className="flex gap-5 items-center mt-4 text-center justify-center">
-                    <Link to={`/scienceDetails/${_id}`}>
+                    <Link to={`/techDetails/${_id}`}>
                         <button className="btn bg-green-400 text-white hover:bg-green-400">Details</button>
                     </Link>
                     {/* <Link to={`/wishlist/${users?.email}`}>
@@ -51,4 +28,4 @@ const ScienceCart = ({ blog }) => {
     );
 };
 
-export default ScienceCart;
+export default TrendTechCart;

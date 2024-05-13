@@ -12,6 +12,7 @@ import Wishlist from "../../Component/Wishlist/Wishlist";
 import UpdateBlog from "../../Component/Home/UpdateBlog";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import ScienceDetails from "../../Component/Home/Science/ScienceDetails";
+import TechDetails from "../../Component/Home/TrendTech/TechDetails";
 
 
 const router = createBrowserRouter([
@@ -38,8 +39,8 @@ const router = createBrowserRouter([
         },
         {
           path: '/blogDetails/:id',
-          element: <BlogDetails></BlogDetails>,
-          loader: ({params})=>fetch(`https://blog-server-side-phi.vercel.app/blogs/${params.id}`)
+          element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
+          loader: ({params})=>fetch(`https://blog-server-side-phi.vercel.app/blogs/${params.id}`,{credentials: 'include'})
         },
         {
           path: '/allBlogs',
@@ -61,8 +62,13 @@ const router = createBrowserRouter([
         },
         {
           path: '/scienceDetails/:id',
-          element: <ScienceDetails></ScienceDetails>,
+          element: <PrivateRoutes><ScienceDetails></ScienceDetails></PrivateRoutes>,
           loader: ({params})=>fetch(`https://blog-server-side-phi.vercel.app/${params.id}`)
+        },
+        {
+          path: '/techDetails/:id',
+          element: <PrivateRoutes><TechDetails></TechDetails></PrivateRoutes>,
+          loader: ({params})=>fetch(`http://localhost:8000/trendBlogs/${params.id}`)
         }
       ]
     },

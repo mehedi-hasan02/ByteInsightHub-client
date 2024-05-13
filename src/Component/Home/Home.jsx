@@ -5,6 +5,7 @@ import newsletterImg from '../../assets/newsletter.png'
 import { useQuery } from '@tanstack/react-query';
 import ScienceCart from './Science/ScienceCart';
 import {motion} from 'framer-motion';
+import TrendTechCart from './TrendTech/TrendTechCart';
 
 const Home = () => {
 
@@ -20,6 +21,13 @@ const Home = () => {
         queryKey: ['scienceData'],
         queryFn: async ()=>{
             const res = await fetch('https://blog-server-side-phi.vercel.app/scienceBlogs');
+            return res.json();
+        }
+    })
+    const {data: techBlogs} = useQuery({
+        queryKey: ['techBlogs'],
+        queryFn: async ()=>{
+            const res = await fetch('http://localhost:8000/trendBlogs');
             return res.json();
         }
     })
@@ -91,6 +99,24 @@ const Home = () => {
                 className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1 md:px-2 lg:px-0'>
                     {
                         scienceBlogs?.map(blog=><ScienceCart key={blog._id} blog={blog}></ScienceCart>)
+                    }
+                </motion.div>
+
+                <div className='text-center mt-16 mb-10 space-y-5'>
+                    <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold'>Tech Trends & Innovations</h1>
+                    <p className='lg:w-3/4 mx-auto'>Explore the cutting edge in our Tech Trends & Innovations section. Discover the latest breakthroughs shaping technology's future. From AI to biotech, we highlight emerging trends, innovative products, and expert insights in 40 words or less.</p>
+                </div>
+
+                <motion.div
+                    initial= {{y:-1000}}
+                    animate={{y:0}}
+                    transition={{
+                        duration: '1',
+                        delay: '1'
+                    }}
+                className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-1 md:px-2 lg:px-0'>
+                    {
+                        techBlogs?.map(blog=><TrendTechCart key={blog._id} blog={blog}></TrendTechCart>)
                     }
                 </motion.div>
 

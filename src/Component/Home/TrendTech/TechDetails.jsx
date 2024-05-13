@@ -1,23 +1,25 @@
+import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import { useQuery } from "@tanstack/react-query";
 
-const BlogDetails = () => {
+
+const TechDetails = () => {
+
     const { id } = useParams();
     const { users } = useContext(AuthContext);
     const name = users?.displayName;
     const image = users?.photoURL;
 
     const { data: blogDetails } = useQuery({
-        queryKey: ['blogDetails', id],
+        queryKey: ['scienceBlog', id],
         queryFn: async () => {
-            const res = await fetch(`https://blog-server-side-phi.vercel.app/blogs/${id}`,{credentials: 'include'});
-            console.log(res);
+            const res = await fetch(`http://localhost:8000/trendBlogs/${id}`);
             return res.json();
         }
     })
+
 
     const handelComment = e => {
         e.preventDefault();
@@ -44,13 +46,10 @@ const BlogDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                refetch();
             })
-            form.reset();
-            
     }
 
-    const { data: allComment, isLoading, refetch } = useQuery({
+    const { data: allComment, isLoading } = useQuery({
         queryKey: ['blogComments'],
         queryFn: async () => {
             const res = await fetch(`https://blog-server-side-phi.vercel.app/comment/${blogDetails?._id}`);
@@ -61,7 +60,6 @@ const BlogDetails = () => {
     if (isLoading) return <div className="text-center">
         <span className="loading loading-spinner loading-md"></span>
     </div>
-
     return (
         <div>
             <section className="bg-white dark:bg-gray-900 mt-10 rounded-xl">
@@ -75,13 +73,13 @@ const BlogDetails = () => {
                             <p className="dark:text-white">Category: {blogDetails?.category}</p>
 
                             <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
-                                <span className="font-bold">Shot Description:</span>
+                                <span>Shot Description:</span>
                                 {
                                     blogDetails?.short_description
                                 }
                             </p>
                             <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
-                                <span className="font-bold">Long Description:</span>
+                                <span>Long Description:</span>
                                 {
                                     blogDetails?.long_description
                                 }
@@ -130,4 +128,4 @@ const BlogDetails = () => {
     );
 };
 
-export default BlogDetails;
+export default TechDetails;

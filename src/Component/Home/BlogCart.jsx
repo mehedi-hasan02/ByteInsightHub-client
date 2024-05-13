@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const BlogCart = ({ blog }) => {
     const {users} = useContext(AuthContext);
@@ -11,7 +12,7 @@ const BlogCart = ({ blog }) => {
         const wishlistID = _id;
         const wishlistData = {wishlistID,email,title,image,category,short_description};
         
-        fetch('http://localhost:8000/wishlist',{
+        fetch('https://blog-server-side-phi.vercel.app/wishlist',{
         method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -20,6 +21,7 @@ const BlogCart = ({ blog }) => {
         })
         .then(res=>res.json())
         .then(data=>{
+            toast.success('Successfully add on wishlist')
             console.log(data);
         })
     }
@@ -40,7 +42,8 @@ const BlogCart = ({ blog }) => {
                     <Link to={`/blogDetails/${_id}`}>
                         <button className="btn bg-green-400 text-white hover:bg-green-400">Details</button>
                     </Link>
-                    <Link to={`/wishlist/${users?.email}`}>
+                    {/* to={`/wishlist/${users?.email}`} */}
+                    <Link>
                         <button onClick={handelWishlist} className="btn bg-green-400 text-white hover:bg-green-400">Wishlist</button>
                     </Link>
                 </div>
