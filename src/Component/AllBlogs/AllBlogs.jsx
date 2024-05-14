@@ -56,7 +56,7 @@ const AllBlogs = () => {
                     >
                         <option value=''>Filter By Category</option>
                         <option value='Robotic'>Robotic</option>
-                        <option value='Big Data'>Big Data</option>
+                        <option value='Big Data'>Artificial Intelligence</option>
                         <option value='Machine Learning'>Machine Learning</option>
                         <option value='Data Science'>Data Science</option>
                     </select>

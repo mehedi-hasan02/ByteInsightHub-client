@@ -22,6 +22,19 @@ const FeatureBlogs = () => {
   }) : [];
   const columns = [
     {
+      name: "serialNumber",
+      label: "Serial Number",
+      options: {
+        filter: false,
+        sort: false,
+        customBodyRender: (value, tableMeta) => {
+          return (
+            <p>{tableMeta.rowIndex + 1}</p>
+          );
+        }
+      }
+    },
+    {
       name: "image",
       label: "Profile Picture",
       options: {

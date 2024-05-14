@@ -2,12 +2,19 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const BlogCart = ({ blog }) => {
     const {users} = useContext(AuthContext);
     const { _id,title,image,category,short_description } = blog;
 
     const handelWishlist = ()=>{
+        if(users === null){ return Swal.fire({
+            title: "Please Login before add in wishlist",
+            text: "You clicked the button!",
+            icon: "warning"
+        });
+    }
         const email = users?.email;
         const wishlistID = _id;
         const wishlistData = {wishlistID,email,title,image,category,short_description};
