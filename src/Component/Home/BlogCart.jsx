@@ -5,32 +5,33 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const BlogCart = ({ blog }) => {
-    const {users} = useContext(AuthContext);
-    const { _id,title,image,category,short_description } = blog;
+    const { users } = useContext(AuthContext);
+    const { _id, title, image, category, short_description } = blog;
 
-    const handelWishlist = ()=>{
-        if(users === null){ return Swal.fire({
-            title: "Please Login before add in wishlist",
-            text: "You clicked the button!",
-            icon: "warning"
-        });
-    }
+    const handelWishlist = () => {
+        if (users === null) {
+            return Swal.fire({
+                title: "Please Login before add in wishlist",
+                text: "You clicked the button!",
+                icon: "warning"
+            });
+        }
         const email = users?.email;
         const wishlistID = _id;
-        const wishlistData = {wishlistID,email,title,image,category,short_description};
-        
-        fetch('https://blog-server-side-phi.vercel.app/wishlist',{
-        method: 'POST',
+        const wishlistData = { wishlistID, email, title, image, category, short_description };
+
+        fetch('https://blog-server-side-phi.vercel.app/wishlist', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(wishlistData)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            toast.success('Successfully add on wishlist')
-            console.log(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('Successfully add on wishlist')
+                console.log(data);
+            })
     }
 
 
@@ -43,8 +44,10 @@ const BlogCart = ({ blog }) => {
             </div>
 
             <div className="px-6 py-4">
-                <h1 className="text-xl font-semibold  ">{title}</h1>
-                <p className="py-2 text-gray-700 dark:text-gray-400">{short_description}</p>
+                <div className="md:min-h-[185px] lg:min-h-[160px]">
+                    <h1 className="text-xl font-semibold  ">{title}</h1>
+                    <p className="py-2 text-gray-700 dark:text-gray-400">{short_description}</p>
+                </div>
                 <div className="flex gap-5 items-center mt-4 ">
                     <Link to={`/blogDetails/${_id}`}>
                         <button className="btn bg-green-400 text-white hover:bg-green-400">Details</button>

@@ -9,7 +9,7 @@ import TrendTechCart from './TrendTech/TrendTechCart';
 
 const Home = () => {
 
-    const { data: blogs } = useQuery({
+    const { data: blogs, isLoading } = useQuery({
         queryKey: ['recentHomeBlogs'],
         queryFn: async () => {
             const res = await fetch('https://blog-server-side-phi.vercel.app/blogs');
@@ -44,6 +44,8 @@ const Home = () => {
 
         form.reset();
     }
+
+    if(isLoading) return <div className='text-center'><span className="loading loading-spinner loading-md"></span></div>
 
     return (
         <div>

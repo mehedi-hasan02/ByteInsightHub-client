@@ -10,7 +10,7 @@ const BlogDetails = () => {
     const name = users?.displayName;
     const image = users?.photoURL;
 
-    const { data: blogDetails } = useQuery({
+    const { data: blogDetails, isLoading } = useQuery({
         queryKey: ['blogDetails', id],
         queryFn: async () => {
             const res = await fetch(`https://blog-server-side-phi.vercel.app/blogs/${id}`,{credentials: 'include'});
@@ -50,7 +50,7 @@ const BlogDetails = () => {
             
     }
 
-    const { data: allComment, isLoading, refetch } = useQuery({
+    const { data: allComment, refetch } = useQuery({
         queryKey: ['blogComments'],
         queryFn: async () => {
             const res = await fetch(`https://blog-server-side-phi.vercel.app/comment/${blogDetails?._id}`);
