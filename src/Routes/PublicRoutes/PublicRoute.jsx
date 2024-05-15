@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         {
           path: '/scienceDetails/:id',
           element: <PrivateRoutes><ScienceDetails></ScienceDetails></PrivateRoutes>,
-          loader: ({params})=>fetch(`https://blog-server-side-phi.vercel.app/${params.id}`)
+          loader: ({params})=>fetch(`https://blog-server-side-phi.vercel.app/scienceBlogs/${params.id}`)
         },
         {
           path: '/techDetails/:id',

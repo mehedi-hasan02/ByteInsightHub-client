@@ -13,6 +13,7 @@ const BlogDetails = () => {
     const { data: blogDetails, isLoading } = useQuery({
         queryKey: ['blogDetails', id],
         queryFn: async () => {
+            
             const res = await fetch(`https://blog-server-side-phi.vercel.app/blogs/${id}`,{credentials: 'include'});
             console.log(res);
             return res.json();
@@ -21,6 +22,13 @@ const BlogDetails = () => {
 
     const handelComment = e => {
         e.preventDefault();
+        if(users === null){
+            return Swal.fire({
+                title: "Please login",
+                text: "You clicked the button!",
+                icon: "warning"
+            });
+        }
         if (users?.email === blogDetails?.writerEmail) {
             return Swal.fire({
                 title: "Can not comment on own blog",
