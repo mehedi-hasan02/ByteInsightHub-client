@@ -29,7 +29,7 @@ const FeatureBlogs = () => {
         sort: false,
         customBodyRender: (value, tableMeta) => {
           return (
-            <p>{tableMeta.rowIndex + 1}</p>
+            <p className="lg:mr-40 lg:ml-10 text-center">{tableMeta.rowIndex + 1}</p>
           );
         }
       }
@@ -42,7 +42,7 @@ const FeatureBlogs = () => {
         sort: true,
         customBodyRender: (data) => {
           return (
-            <Avatar variant="rounded" src={data} >
+            <Avatar className="lg:mr-48  ml-10" variant="rounded" src={data} >
             </Avatar>
 
           )
@@ -57,7 +57,7 @@ const FeatureBlogs = () => {
         sort: true,
         customBodyRender: (data) => {
           return (
-            <p>{data}</p>
+            <p className="lg:mr-40 lg:ml-0 text-center">{data}</p>
 
           )
         }
@@ -71,7 +71,7 @@ const FeatureBlogs = () => {
         sort: true,
         customBodyRender: (data) => {
           return (
-            <p>{data}</p>
+            <p >{data}</p>
 
           )
         }
@@ -86,8 +86,9 @@ const FeatureBlogs = () => {
   };
   return (
     <div className="mt-10 mb-5">
+      <div className="text-center mb-5"><h1 className="text-2xl md:top-3xl lg:text-4xl font-bold">Top Post</h1></div>
       <MUIDataTable
-        title={"Top Post"}
+        title={""}
         data={data}
         columns={columns}
         options={options}
