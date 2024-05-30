@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {
 
@@ -16,6 +17,7 @@ const Register = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
 
@@ -31,7 +33,13 @@ const Register = () => {
             handleUpdateProfile(name,photo)
             logOut()
             toast.success('User created successfully');
-            navigate('/login')
+            sendEmailVerification(res.user)
+            .then(()=>{
+                toast.success('Check your email and verify')
+                reset()
+            })
+            console.log(res.user);
+            // navigate('/login')
         })
             .catch(error => {
             })

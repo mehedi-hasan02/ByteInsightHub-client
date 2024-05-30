@@ -10,7 +10,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    const { signIn, googleLogin, } = useContext(AuthContext);
+    const { signIn, googleLogin,logOut } = useContext(AuthContext);
     const [logInError, setLogInError] = useState('');
     const navigate = useNavigate();
 
@@ -29,9 +29,16 @@ const Login = () => {
         const { email, password, captcha } = data;
         if (validateCaptcha(captcha)) {
             signIn(email, password)
-                .then(() => {
-                    toast.success('Login successfully');
-                    navigate('/');
+                .then(result => {
+                    console.log(result);
+                    if (result.user.emailVerified) {
+                        toast.success('Login successfully');
+                        navigate('/');
+                    }else{
+                        toast.error('Please verify your email address')
+                        logOut()
+                    }
+
                 })
                 .catch((error) => {
                     setLogInError(error.message)
@@ -39,7 +46,7 @@ const Login = () => {
                         logInError && toast.error('Invalid Email and Password');
                     }
                 })
-        }else{
+        } else {
             toast.error('wrong captcha')
         }
 
