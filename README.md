@@ -1,7 +1,7 @@
 # ByteInsightHub
 
 #### Live Link:
-[Visit EasyTour](https://rococo-kheer-b232e7.netlify.app/)
+[Visit ByteInsightHub](https://rococo-kheer-b232e7.netlify.app/)
 
 #### Key Feature:
 - Easily navigate through sections with a convenient navbar.
