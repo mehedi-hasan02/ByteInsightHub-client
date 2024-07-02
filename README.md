@@ -28,8 +28,8 @@ A dynamic web application designed for tech enthusiasts to share and discuss the
 #### For Cloning Project:
 - Need to install node
 - For Frontend Configuration:
--- Set up Firebase configuration in the frontend.
+    - Set up Firebase configuration in the frontend.
 - For Backend Configuration"
--- MongoDB user & password
--- Access token secret
+    - MongoDB user & password
+    - Access token secret
 
